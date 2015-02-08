@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html ng-app="Panorama">
+<head>
+  <meta charset="utf-8" lang="fr"/>
+  <link type="text/css" rel="stylesheet" href="style.css"/>
+  <link type="text/css" rel="stylesheet" href="jquery-ui.min.css"/>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/ion.rangeSlider.css">
+  <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300' rel='stylesheet' type='text/css'>
+  <title>Festival Panorama </title>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="jquery-ui.min.js"></script>
+  <script type='text/javascript' src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
+  <script type="text/javascript" src="js/html2canvas.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  
+</head>
+<body>
+  <!-- SIDE MENU -->
+  <nav class="nav">
+    <a href="#" class="nav-logo"> 
+     <img src="images/icon.png" alt="Panorama 18"/>
+   </a>
+   <ul class="nav-items">
+     <li class="nav-item" id="art">
+      <a href="#" class="nav-iconContainer">
+       <img src="images/icon1.png" alt="nav"/>
+     </a>
+   </li>
+   <li class="nav-item" id="bte">
+    <a href="#" class="nav-iconContainer">
+     <img src="images/icon2.png" alt="nav"/>
+   </a>
+ </li>
+ <li class="nav-item" id="mdl">
+  <a href="#" class="nav-iconContainer">
+   <img src="images/icon3.png" id="medley" alt="nav"/>
+ </a>
+</li>
+<li class="nav-item" id="inf">
+  <a href="#" class="nav-iconContainer last">
+   <img src="images/icon4.png" id="info" alt="nav"/>
+ </a>
+</li>
+</ul>	
+</nav>
+
+
+<!--  TICKETS -->    
+<div class="content bte opened">  
+  <div class="sub_menu billeterie opened_menu" id="menu_billetterie">
+   <div class="head">
+     <h2> BILLETTERIE </h2>
+     <hr/>
+     <div class="subtitle">
+       <p> Choisissez le billet qui vous convient. </p>
+     </div>
+   </div>
+   <div class="arrow">
+    <img src="images/arrow.png"/>
+  </div>
+  <form class="inputs">
+   <div id="day1" class="input_container">
+    <div class="input">
+     <input id="d1" class="day" type="radio" name="day"> <label for="d1" class="label1 radio">Pass 1 jour</label> 
+   </div>
+ </div>
+ <div id="day2" class="input_container">
+  <div class="input">
+    <input type="radio" name="day" id="d2" class="day"><label for ="d2" class="label1 radio">Pass 2 jours </label>
+  </div>
+</div>
+<div id="camp" class="input_container">
+  <div class="input2">
+    <input id="c1" type="checkbox" name="camp" class ="cmp"><label class="label1" for="camp">Camping</label> 
+  </div>
+</div>
+</form>
+</div>
+
+
+<!-- MAIN-->    
+<div class="tickets opened_content">
+  <!-- PASS 1 DAY NO CAMPING -->
+  <div class="widget pass1 first" style="display:none; opacity:0;">
+    <div class="head_wg">
+      <h3>PASS VENDREDI</h3>
+    </div>
+    <div class="arrow_grey">
+     <img src="images/arrow_grey.png"/>
+   </div>
+   <div class="info_t">
+    <p class="list">
+      Kaytranada / The Bloody Beetroots (dj Set) / Infected Mushroom / Noisia / Boris Brejcha / Lido / Savant / Salut C’est Cool / Joke / Kink (live) / Far Too Loud / Don Rimini B2b / Surfing Leons / Stwo / Mmmmm / Midside
+    </p>
+    <p class="price">- 36,50 € -</p>
+    <div class="book">
+      <a data-text="Réserver" class="button-hover hvr-float" href="#">Réserver</a>
+      <div>
+        <a href="#"><img class="bottom_btn" src="images/icon5.png"/></a>
+      </div>
+    </div>
+  </div>           
+</div>
+<div class="widget pass1 second" style="display:none; opacity:0;">
+  <div class="head_wg">
+    <h3>PASS SAMEDI</h3>
+  </div>
+  <div class="arrow_grey">
+   <img src="images/arrow_grey.png"/>
+ </div>
+ <div class="info_t">
+  <p class="list">
+    Laurent Garnier / Tale Of Us / Brodinski / Tchami / Super Discount 3 / Mod3rn / Max Cooper / Superpoze / Fkj Live / Alesia / Point Point / Joachim Pastor / Coely / The Geek & Vrv / Madben Cymatics / Cotton Claw / Dbfc / Falabella
+
+  </p>
+  <p class="price">- 36,50 € -</p>
+  <div class="book">
+    <a data-text="Réserver" class="button-hover hvr-float" href="#">Réserver</a>
+    <div>
+      <a href="#"><img class="bottom_btn" src="images/icon5.png"/></a>
+    </div>
+  </div>
+</div>           
+</div>
+<div class="widget pass1 third" style="display:none; opacity:0;">
+  <div class="head_wg">
+    <h3>PASS DIMANCHE</h3>
+  </div>
+  <div class="arrow_grey">
+   <img src="images/arrow_grey.png"/>
+ </div>
+ <div class="info_t">
+  <p class="list">
+    Recondite / Oniris / Flavien Berger / Brulin / Dddxie 
+  </p>
+  <p class="price">- 20,99 € -</p>
+  <div class="book">
+    <a data-text="Réserver" class="button-hover hvr-float" href="#">Réserver</a>
+    <div>
+      <a href="#"><img class="bottom_btn" src="images/icon5.png"/></a>
+    </div>
+  </div>
+</div>           
+</div>
+
+
+
+<!-- PASS 1 DAY CAMP -->
+<div class="widget pass1c first2" style="display:none; opacity:0;">
+  <div class="head_wg">
+    <h3>PASS VENDREDI + CAMPING</h3>
+  </div>
+  <div class="arrow_grey">
+   <img src="images/arrow_grey.png"/>
+ </div>
+ <div class="info_t">
+  <p class="list">
+   S-crew / Bakermat / Klingande / Mr Oizo / Rone / Who Made Who / Boys Noize / The Popopopops / Worakls / Amine Edge / Kolsch (Rune Reilly Kolsch) / Goldfish / Blind Digital Citizen / Marie Prieux 
+
+ </p>
+ <p class="price">- 40,50 € -</p>
+ <div class="book">
+  <a data-text="Réserver" class="button-hover hvr-float" href="#">Réserver</a>
+  <div>
+    <a href="#"><img class="bottom_btn" src="images/icon5.png"/></a>
+  </div>
+</div>
+</div>           
+</div>
+<div class="widget pass1c" style="display:none; opacity:0;">
+  <div class="head_wg">
+    <h3>PASS SAMEDI + CAMPING</h3>
+  </div>
+  <div class="arrow_grey">
+   <img src="images/arrow_grey.png"/>
+ </div>
+ <div class="info_t">
+  <p class="list">
+   Parov Stelar / Daniel Avery / Fakear / Sarah W Papsun / N'To / Cashmere Cat / Zeds Dead / Claptone / Danton Eeprom / Pan Pot / Bondax / Doist ! / Valentin Marlin / Encore / Dombrance
+
+ </p>
+ <p class="price">- 40,50 € -</p>
+ <div class="book">
+  <a data-text="Réserver" class="button-hover hvr-float" href="#">Réserver</a>
+  <div>
+    <a href="#"><img class="bottom_btn" src="images/icon5.png"/></a>
+  </div>
+</div>
+</div>           
+</div>
+
+
+
+<!-- PASS 2 DAYS -->
+<div class="widget pass2 only" style="display:none; opacity:0;">
+  <div class="head_wg">
+    <h3>PASS VENDREDI + SAMEDI</h3>
+  </div>
+  <div class="arrow_grey">
+   <img src="images/arrow_grey.png"/>
+ </div>
+ <div class="info_t">
+  <p class="list">
+   Kaytranada / The Bloody Beetroots (dj Set) / Infected Mushroom / Noisia / Boris Brejcha / Lido / Savant / Salut C’est Cool / Joke / Kink (live) / Far Too Loud / Don Rimini B2b / Surfing Leons / Stwo / Mmmmm / Midside
+ </p>
+ <p class="open_sans">+</p>
+ <p class="list">
+  Laurent Garnier / Tale Of Us / Brodinski / Tchami / Super Discount 3 / Mod3rn / Max Cooper / Superpoze / Fkj Live / Alesia / Point Point / Joachim Pastor / Coely / The Geek & Vrv / Madben Cymatics / Cotton Claw / Dbfc / Falabella
+</p>
+<p class="price">- épuisé -</p>
+<div class="book">
+  <a data-text="Réserver" class="button" id="disabled" href="#">Réserver</a>
+  <div>
+    <a href="#"><img class="bottom_btn" src="images/icon5.png"/></a>
+  </div>
+</div>
+</div>           
+</div>
+</div>
+</div>
+<!-- MAIN PANO-->
+<div class="content mdl" id="pano" style="display:none;" ng-controller="PanoCtrl">  
+  <div class="sub_menu pano" id="menu_billetterie" style="display:none;">
+   <div class="head">
+     <h2> MON PANO </h2>
+     <hr/>
+     <div class="subtitle">
+      <p> Imaginez votre soirée idéale et partagez-la à vos amis. </p>
+    </div>
+  </div>
+  <div class="arrow">
+    <img src="images/arrow.png"/>
+  </div>
+  <div class="inputs_j1j2j3">
+    <h3 class="title_art open_sans">Jour</h3>
+    <div class="input_container input_container_art">
+      <div class="input input_art">
+       <input class="day_art" type="radio" ng-model="day_pano" name="day_pano" value="1" id="pano1"> <label for="pano1" class="label2 radio">Jour 1</label>
+     </div>
+   </div>
+   <div class="input_container input_container_art">
+     <div class="input input_art">
+       <input class="day_art" type="radio" ng-model="day_pano" name="day_pano" value="2" id="pano2"> <label for="pano2" class="label2 radio">Jour 2</label>
+     </div>
+   </div>
+   <div class="input_container input_container_art">
+   <div class="input input_art">
+     <input class="day_art" type="radio" ng-model="day_pano" name="day_pano" value="3" id="pano3" checked> <label for="pano3" class="label2 radio">Jour 3</label>
+   </div>
+   </div>
+ </div>
+ <div class="inputs_pano_art">
+  <h3 class="title_art open_sans">Artistes</h3>
+  <div ng-repeat="ar in artiste | filter: dayFilter">
+    <div class="input_container input_container_art_check">
+      <div class="input2 input_art" ng-click="includeArtiste(ar)">
+        <input jour-id="ar.jour" class="day_art" type="checkbox" ng-model="ar.isChecked"/>
+        <label class="label2">{{ar.name}}</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="pano_content" style="display:none;">
+  <div class="timeline_container" style="display:none;">
+    <!-- <div class="timeline_artists_container"> -->
+    cpt: {{cpt}}
+
+    <div ng-repeat="a in artiste | filter:artisteFilter | filter:dayFilter">
+
+      <div class="art_pano_container" ng-class-odd="'odd'" ng-class-even="'even'" style="margin-left:{{-200+(800/(cpt[dayChecked()-1]))}}px">
+
+        <div class="art_heure_pano"> - {{a.heure}} - </div>
+        <div class="art_name_pano"> {{a.name}} </div>
+        <div class="art_salle_pano"> {{a.salle}} </div>
+        <img class="icon_timeline" src="images/noeud.png" alt="nav"/>
+      </div>
+    </div>  
+
+
+    <!-- </div> -->
+    <div class="line_container">
+      <hr class="blue_line"/>
+    </div>
+    <div class="button_container">
+    <a data-text="Réserver" id="generate" class="button_medley" href="#">Générer votre medley</a>
+    </div>
+<!--     <div class="art_pano_container even" style="margin-left:0%">
+      <img class="icon_timeline" src="images/noeud.png" alt="nav"/>
+      <div class="art_heure_pano"> -01h30- </div>
+      <div class="art_name_pano"> ARTISTE </div>
+      <div class="art_salle_pano"> SALLE </div>
+    </div> -->
+  </div>
+</div>
+
+</div>
+
+
+
+
+<!-- MAIN ARTIST -->
+<div class="content art" id="artiste" style="display:none;">
+  <div class="sub_menu artiste" id="menu_billetterie" style="display:none;">
+   <div class="head">
+     <h2> PROGRAM-</h2>
+     <h2 id="mation"> MATION</h2>
+     <hr/>
+     <div class="subtitle">
+       <p> Parcourez le line-up du festival selon vos critères. </p>
+     </div>
+   </div>
+   <div class="arrow">
+    <img src="images/arrow.png"/>
+  </div>
+  <form class="inputs_art">
+    <h3 class="title_art open_sans">Jour</h3>
+    <div class="input_container rad_container  input_container_art">
+      <div class="input input_art">
+       <input class="day_art default" type="radio" name="day_art" value="0" ng-model="day_art" id="jall"> <label for="jall" class="label2 radio">Tous</label>
+     </div>
+   </div>
+   <div class="input_container rad_container  input_container_art">
+    <div class="input input_art">
+     <input class="day_art" type="radio" name="day_art" value="1" ng-model="day_art" id="j1"> <label for="j1" class="label2 radio">Vendredi</label>
+   </div>
+ </div>
+ <div class="input_container rad_container  input_container_art">
+  <div class="input input_art">
+    <input class="day_art" type="radio" name="day_art" value="2" ng-model="day_art" id="j2"> <label for="j2" class="label2 radio">Samedi</label> 
+  </div>
+</div>
+<div class="input_container rad_container input_container_art">
+  <div class="input input_art">
+    <input class="day_art" type="radio" name="day_art" value="3" ng-model="day_art" id="j3"> <label for="j3" class="label2 radio">Dimanche</label> 
+  </div>
+</div>
+</form>
+
+<form class="inputs_sal">
+  <h3 class="title_art open_sans">Salle</h3>
+  <div class="input_container rad_container input_container_art">
+    <div class="input input_art">
+     <input class="sal_art default" type="radio" ng-model="sal_art" value="0" name="sal_art" id="sall"> <label for="sall" class="label2 radio">Toutes</label>
+   </div>
+ </div>
+ <div class="input_container rad_container input_container_art">
+  <div class="input input_art">
+   <input class="sal_art" type="radio" name="sal_art" ng-model="sal_art" value="1" id="s1"> <label for="s1" class="label2 radio">Grand Club</label>
+ </div>
+</div>
+<div class="input_container rad_container input_container_art">
+  <div class="input input_art">
+    <input class="sal_art" type="radio" name="sal_art" ng-model="sal_art" value="2" id="s2"> <label for="s2" class="label2 radio">Le Club</label> 
+  </div>
+</div>
+<div class="input_container rad_container input_container_art">
+  <div class="input input_art">
+
+    <input class="sal_art" type="radio" name="sal_art" ng-model="sal_art" value="3" id="s3"> <label for="s3" class="label2 radio">Club Sesame</label> 
+  </div>
+</div>
+<div class="input_container rad_container input_container_art">
+  <div class="input input_art">
+    <input class="sal_art" type="radio" name="sal_art" ng-model="sal_art" value="4" id="s4"> <label for="s4" class="label2 radio">Club Coatelan</label> 
+  </div>
+</div>
+</form>
+<div class="input_h" data-range="{{range}}">
+  <h3 class="title_art open_sans">Horaires {{range}}</h3>
+  <div class="slider"><input type="text" id="range" ng-model="range" value="" name="range"/>
+  </div>
+</div>
+</div>
+<div class="art_content" ng-controller="artistCtrl" style="display:none; height:{{artistes.length*200}}+px" >
+  <div class="list" data-size="{{$artistes.length}}">
+    <div class="repeat" ng-repeat="artist in artistes">
+      <div class="row1" data-hide-day="{{((day_art==artist.jourId)==false)&&(day_art!=0)}}" data-hide-salle="{{(sal_art!=0)&&(sal_art==artist.salleId)==false}}" data-time="{{artist.heureId}}" data-position="{{$index}}">
+        <div class="row__img__wrapper row__img__wrapper--nb">
+          <div class="row__img row__img--nb" style="background:url({{artist.pic_link_black}}) no-repeat center center;"></div>
+        </div> 
+        <h1 class="art_name">{{artist.name}}</h1>
+        <div class="row__img__wrapper row__img__wrapper--color">
+          <div class="row__img row__img--color">
+            <div class="container_img" style="background:url({{artist.pic_link_color}}) no-repeat center center;"></div>
+          </div>
+        </div>
+      </div>  
+      <div class="row_art" style="display:none;">
+        <div class="art_vid dropdown">
+        </div>
+        <div class="art_main dropdown">
+          <p class="time">{{artist.heure}}</p>
+          <p class="art_day">{{artist.jour}}</p>
+          <p class="art_style">{{artist.style}}</p>
+          <div class="description">
+            <p>{{artist.description}}</p>
+          </div>
+          <div class="add_pano">
+            <a class="add"><img class="add_img" src="images/add.png"/>                        Ajouter a MON PANO </a>
+          </div>
+        </div>
+        <div class="art_social">
+          <a href="#" class="socicon social">a</a>
+          <a href="#" class="socicon social">b</a>  
+          <a href="#" class="socicon social">n</a> 
+          <img class="leave" src="images/leave.png"/>         
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+</div>
+
+
+        <!--INFO-->
+        <div class="content inf" id="info" style="display:none;">  
+            <div class="sub_menu info " id="menu_billetterie" style="display:none;">
+                <div class="head">
+                    <h2> INFOS 
+                    </h2>
+                    <hr/>
+                    <div class="subtitle">
+                        <p> Tout ce dont vous avez besoin de savoir 
+                        </p>
+                    </div>
+                </div>
+                <div class="arrow">
+                    <img src="images/arrow.png"/>
+                </div>
+                <div class="infos">
+                    <div class="input_container rad_container imput_container_art">
+                        <div class="infos">
+                            <div class="input_container imput_container_art">
+                                <div class="input input_art">
+                                    <input id="acces" class="day_art" ng-model="day_pano" type="radio" name="info">
+                                    <label for="acces" class="label1 radio">Accès / Contact
+                                    </label> 
+                                </div>
+                            </div>
+                            <div class="input_container imput_container_art">
+                                <div class="input input_art">
+                                    <input id="acces" class="day_art" ng-model="day_pano" type="radio" name="info">
+                                    <label for="acces" class="label1 radio">Entrée
+                                    </label> 
+                                </div>
+                            </div>
+                            <div class="input_container imput_container_art">
+                                <div class="input input_art">
+                                    <input id="acces" ng-model="day_pano" class="day_art" type="radio" name="info"> 
+                                    <label for="acces" class="label1 radio">Transport
+                                    </label> 
+                                </div>
+                            </div>
+                            <div class="input_container imput_container_art">
+                                <div class="input input_art">
+                                    <input id="acces" class="day_art" ng-model="day_pano" type="radio" name="info"> 
+                                    <label for="acces" class="label1 radio">Camping
+                                    </label> 
+                                </div>
+                            </div>
+                            <div class="input_container imput_container_art">
+                                <div class="input input_art">
+                                    <input id="acces" class="day_art" ng-model="day_pano" type="radio" name="info"> 
+                                    <label for="acces" class="label1 radio">A savoir
+                                    </label> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MAIN INFO-->
+            <div class="info_content">
+                <div class="acces">
+                    <div class="sub_info">
+                        <div class="info_line">
+                        </div>
+                        <div class= "title-line">
+                            <h2 class="info_title">accès / contact
+                            </h2>
+                        </div>
+                        <div class="arrow_grey">
+                            <img src="images/arrow_grey.png"/>
+                        </div>
+                    </div>
+                    <div class="img-acces">
+                        <img class="map-acces" src="images/map.png">
+                    </div>
+                </div>
+                <div class="entree">
+                    <div class="sub_info">
+                        <div class="info_line">
+                        </div>
+                        <div class= "title-line">
+                            <h2 class="info_title">entrée du festival
+                            </h2>
+                        </div>
+                        <div class="arrow_grey">
+                            <img src="images/arrow_grey.png"/>
+                        </div>
+                    </div>
+                    <div class="img-entree">
+                    </div>
+                </div>
+                <div class="trsp">
+                    <div class="sub_info">
+                        <div class="info_line">
+                        </div>
+                        <div class= "title-line">
+                            <h2 class="info_title">transport
+                            </h2>
+                        </div>
+                        <div class="arrow_grey">
+                            <img src="images/arrow_grey.png"/>
+                        </div>
+                    </div>
+                    <div class="img-trsp">
+                    </div>    
+                </div>
+                <div class="camping">
+                    <div class="sub_info">
+                        <div class="info_line">
+                        </div>
+                        <div class= "title-line">
+                            <h2 class="info_title">camping
+                            </h2>
+                        </div>
+                        <div class="arrow_grey">
+                            <img src="images/arrow_grey.png"/>
+                        </div>
+                    </div>
+                    <div class="img-camping">
+                    </div>    
+                </div>
+                <div class="savoir">
+                    <div class="sub_info">
+                        <div class="info_line">
+                        </div>
+                        <div class= "title-line">
+                            <h2 class="info_title">à savoir
+                            </h2>
+                        </div>
+                        <div class="arrow_grey">
+                            <img src="images/arrow_grey.png"/>
+                        </div>
+                    </div>
+                    <div class="img-savoir">
+                    </div>    
+              </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/script.js">
+    </script>
+</html>
